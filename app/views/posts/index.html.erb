@@ -1,0 +1,21 @@
+<h3>総支出:<%= @sumout%>円　　総収入:<%= @sumin%>円　　合計:<%= @sumin-@sumout%>円</h3>
+<% @posts.each do|post|%>
+  <div>
+    <% if post.outgoing.present? %>
+      <div>
+        <%=link_to("支出:#{post.outgoing}円","/posts/#{post.id}") %>
+        <% if post.memo.present? %>
+          （メモ：<%= post.memo %>）
+        <% end %>
+      </div>
+    <% end %>
+    <% if post.incoming.present? %>
+      <div>
+        <%=link_to("収入:#{post.incoming}円","/posts/#{post.id}") %>
+        <% if post.memo.present? %>
+          （メモ：<%= post.memo %>）
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<%end%>

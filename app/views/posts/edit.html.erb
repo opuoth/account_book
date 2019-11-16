@@ -1,0 +1,9 @@
+<% @post.errors.full_messages.each do|message| %>
+<%=message %>
+<% end %>
+<%= form_tag("/posts/#{@post.id}/update") do %>
+    <div>支出:<input name="outgoing" value="<%=@post.outgoing%>">円</div>
+    <div>収入:<input name="incoming" value="<%=@post.incoming%>">円</div>
+    <div>メモ:<input name="memo" value="<%=@post.memo%>"></div>
+    <input type="submit" value="保存">
+<% end %>

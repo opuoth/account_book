@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  memo: MyString
+  outgoing: 1
+  incoming: 1
+
+two:
+  memo: MyString
+  outgoing: 1
+  incoming: 1

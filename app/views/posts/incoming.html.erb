@@ -1,0 +1,14 @@
+<% if @error_message %>
+<%=@error_message%>
+<%end%>
+<h1>
+  <%= link_to("支出","/outgoing") %>
+  <%= link_to("収入","/incoming") %>
+</h1>
+<%= form_tag("/posts/in") do%>
+<p>メモ</p>
+<input name="memo">
+<p>収入</p>
+<input type="number" name="incoming" value="0">円
+<p><input type="submit" value="収入を入力する"></p>
+<%end%>

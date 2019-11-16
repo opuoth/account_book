@@ -1,0 +1,27 @@
+<div>
+<% if @post.outgoing.present? %>
+  <div>
+    支出:<%=@post.outgoing%>円
+    <% if @post.memo.present? %>
+      （メモ：<%= @post.memo %>）
+    <% end %>
+  </div>
+<% end %>
+<% if @post.incoming.present? %>
+  <div>
+    収入:<%=@post.incoming%>円
+    <% if @post.memo.present? %>
+      （メモ：<%= @post.memo %>）
+    <% end %>
+  </div>
+<% end %>
+<div>
+    <ul>
+      <li>
+        <%= link_to("編集","/posts/#{@post.id}/edit") %>
+      </li>
+      <li>
+        <%= link_to("削除","/posts/#{@post.id}/destroy",{method: "post"}) %>
+      </li>
+    </ul>
+</div>

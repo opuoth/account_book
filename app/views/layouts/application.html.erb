@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kakeibo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul id="nav">
+      <li><a class=”active” href="/outgoing">入力画面</a></li>
+      <li><a href="/posts/index">合計</a></li>
+      <li><a href="/posts/calendar">カレンダー</a></li>
+      <li><a href="/posts/report">レポート</a></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>
