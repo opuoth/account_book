@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  budget: 1
+  price: 1
+  date: 2019-12-24
   memo: MyString
-  outgoing: 1
-  incoming: 1
+  category_id: 1
 
 two:
+  budget: 1
+  price: 1
+  date: 2019-12-24
   memo: MyString
-  outgoing: 1
-  incoming: 1
+  category_id: 1

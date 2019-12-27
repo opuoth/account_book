@@ -84,11 +84,12 @@ if (document.getElementById('next') != null) {
   document.getElementById('next').addEventListener('click', moveCalendar)
 }
 
-document.addEventListener("click", function(e) {
+$(document).on("click", function(e) {
   if(e.target.classList.contains("calendar_td")) {
-      // alert('クリックした日付は' + e.target.dataset.date + 'です');
-      $('.select').removeClass('select');
-      e.target.classList.add("select");
+    console.log(e.target.dataset.date);
+    // alert('クリックした日付は' + e.target.dataset.date + 'です');
+    $('.select').removeClass('select');
+    e.target.classList.add("select");
   }
 });
 

@@ -5,10 +5,21 @@
   <%= link_to("支出","/outgoing") %>
   <%= link_to("収入","/incoming") %>
 </h1>
-<%= form_tag("/posts/out") do %>
-<p>メモ</p>
-<input name="memo">
-<p>支出</p>
-<input type="number" name="outgoing" value="0">円
-<p><input type="submit" value="支出を入力する"></p>
+<%= form_with url:posts_out_url do |f| %>
+  <%= f.label "日付" %>
+  <%= f.date_field :date %>
+  <br>
+  <%= f.label "メモ" %>
+  <%= f.text_field :memo %>
+  <br>
+  <%= f.label "支出" %>
+  <%= f.number_field :outgoing, value:0 %>円
+  <br>
+  <%= f.label "カテゴリー" %>
+  <% @out_categories.each do |category| %>
+    <%= f.radio_button :category ,category.id %>
+    <%= f.label :category, category.name %>
+  <% end %>
+  <br>
+  <%= f.submit "入力" %>
 <% end %>

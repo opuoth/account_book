@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190627085526) do
+ActiveRecord::Schema.define(version: 20191225123739) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "memo"
-    t.integer  "outgoing"
-    t.integer  "incoming"
+  create_table "budgets", force: :cascade do |t|
+    t.integer "budget_type"
+    t.integer "price"
+    t.date "date"
+    t.string "memo"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "budget_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "months", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.integer "outgo", default: 0
+    t.integer "income", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

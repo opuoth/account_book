@@ -6,7 +6,7 @@
   var data = {
     labels: ['食費','交際費','美容'],
     datasets: [{
-      data: [122,53,33],
+      data: [122,13,33],
       backgroundColor: ['orange','skyblue','pink']
     }]
   };

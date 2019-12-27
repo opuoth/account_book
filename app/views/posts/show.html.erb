@@ -1,20 +1,23 @@
 <div>
-<% if @post.outgoing.present? %>
+<% if @post.budget_type == 0 %>
   <div>
-    支出:<%=@post.outgoing%>円
+    支出:<%= @post.price %>円
+    <% if @post.memo.present? %>
+      （メモ：<%= @post.memo %>）
+    <% end %>
+  </div>
+<% else %>
+  <div>
+    収入:<%=@post.price%>円
     <% if @post.memo.present? %>
       （メモ：<%= @post.memo %>）
     <% end %>
   </div>
 <% end %>
-<% if @post.incoming.present? %>
-  <div>
-    収入:<%=@post.incoming%>円
-    <% if @post.memo.present? %>
-      （メモ：<%= @post.memo %>）
-    <% end %>
-  </div>
-<% end %>
+<br>
+<div>日付:<%= @post.date %></div>
+<br>
+<div>カテゴリー:<%= @category.name %></div>
 <div>
     <ul>
       <li>
