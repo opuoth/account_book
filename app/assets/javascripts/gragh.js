@@ -45,7 +45,7 @@
     },
     title: {
       display:true,
-      text: gon.month+'月の収入と支出',
+      text: gon.month+'月の収入と支出の推移',
       fontSize:18,
     },
     legend: {

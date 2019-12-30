@@ -1,9 +1,20 @@
-<canvas id="my_chart">
-  Canvas not supported...
-</canvas>
+<div class="chart">
+  <canvas id="chart_out">
+    Canvas not supported...
+  </canvas>
+</div>
 
-<canvas id="gragh" height=150 weight=100></canvas>
+<div class="chart">
+  <canvas id="chart_in">
+    Canvas not supported...
+  </canvas>
+</div>
+
+<div class="gragh">
+  <canvas id="gragh" height=150 weight=100></canvas>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<%= javascript_include_tag "report.js" %>
+<%= javascript_include_tag "chart_out.js" %>
+<%= javascript_include_tag "chart_in.js" %>
 <%= javascript_include_tag "gragh.js" %>

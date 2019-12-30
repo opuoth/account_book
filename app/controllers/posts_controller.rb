@@ -62,16 +62,49 @@ class PostsController < ApplicationController
   end
 
   def calendar
+    @dates = Budget.joins(:category).group(:budget_type,:date,:category_id).order(date: "ASC").sum(:price)
   end
 
   def report
+    #グラフデータの初期化
     gon.data1 = []
     gon.data2 = []
+    #パイチャートの初期化
+    label_out={}
+    label_in={}
+    Category.all.each do |son|
+      if(son.budget_type==0)
+        label_out[son.name]=0
+      else
+        label_in[son.name]=0
+      end
+    end
+    gon.label_out=[]
+    gon.label_in=[]
+    gon.data_out=[]
+    gon.data_in=[]
     d = Date.today
     str = d.strftime('%Y-%m-')
     d.day.times do |date|
       gon.data1 << Budget.where(date:str+(date+1).to_s,budget_type: 0).sum(:price)
       gon.data2 << Budget.where(date:str+(date+1).to_s,budget_type: 1).sum(:price)
+      data_hash_out = Budget.where(date:str+(date+1).to_s,budget_type: 0).joins(:category).select("categories.*").group("categories.name").sum(:price)
+      data_hash_in = Budget.where(date:str+(date+1).to_s,budget_type: 1).joins(:category).select("categories.*").group("categories.name").sum(:price)
+
+      data_hash_out.each do |key,value|
+        label_out[key]+=value
+      end
+      data_hash_in.each do |key,value|
+        label_in[key]+=value
+      end
+    end
+    label_out.each do |key,value|
+      gon.label_out << key
+      gon.data_out << value
+    end
+    label_in.each do |key,value|
+      gon.label_in << key
+      gon.data_in << value
     end
     gon.month = d.month
   end
