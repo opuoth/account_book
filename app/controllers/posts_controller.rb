@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   end
 
   def calendar
-    @dates = Budget.joins(:category).group(:budget_type,:date,:category_id).order(date: "ASC").sum(:price)
+    @dates = Budget.joins(:category).select("categories.*").group("budgets.budget_type","budgets.date","categories.name").order(date: "ASC").sum(:price)
   end
 
   def report

@@ -15,7 +15,7 @@
     cutoutPercentage: 40,
     title: {
       display: true,
-      text: '12月の収入',
+      text: gon.month+'月の収入',
       fontSize: 20
     }
   };

@@ -15,7 +15,7 @@
     cutoutPercentage: 40,
     title: {
       display: true,
-      text: '12月の支出',
+      text: gon.month+'月の支出',
       fontSize: 20
      }
   };

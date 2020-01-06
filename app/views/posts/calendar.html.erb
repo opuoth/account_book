@@ -8,6 +8,6 @@
 
 <% @dates.each do |date| %>
   <% if date[0][0]==0 %>
-    <p><%= date %></p>
+    <p>日にち:<%= date[0][1] %> カテゴリー:<%= date[0][2] %> <%=date[1]%>円</p>
   <% end %>
 <% end %>

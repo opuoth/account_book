@@ -13,11 +13,12 @@
  *= require_tree .
  *= require_self
  */
-/* .chart {
+.chart {
   display: inline-block;
-  width: 100px;
-} */
+  width: 500px;
+}
 
 .gragh {
+  width: 1000px;
   margin: 20px;
 }
