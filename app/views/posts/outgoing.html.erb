@@ -1,25 +1,31 @@
 <% if @error_message %>
-<%=@error_message%>
+  <%=@error_message%>
 <%end%>
-<h1>
-  <%= link_to("支出","/outgoing") %>
-  <%= link_to("収入","/incoming") %>
-</h1>
+<h3>
+  <%= link_to("支出","/outgoing",{class:"btn btn-primary"}) %>
+  <%= link_to("収入","/incoming",{class:"btn btn-lg"}) %>
+</h3>
 <%= form_with url:posts_out_url do |f| %>
-  <%= f.label "日付" %>
-  <%= f.date_field :date %>
+  <%= f.label "日付:" %>
+  <%= f.date_field :date, class:"form-control" %>
   <br>
-  <%= f.label "メモ" %>
-  <%= f.text_field :memo %>
+  <%= f.label "メモ:" %>
+  <%= f.text_field :memo, class:"form-control" %>
   <br>
-  <%= f.label "支出" %>
-  <%= f.number_field :outgoing, value:0 %>円
+  <%= f.label "支出:" %>
+  <%= f.number_field :outgoing, value:0, class:"form-control" %>円
+  <br>
   <br>
   <%= f.label "カテゴリー" %>
   <% @out_categories.each do |category| %>
-    <%= f.radio_button :category ,category.id %>
-    <%= f.label :category, category.name %>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :category ,category.id %>
+      <%= f.label :category, category.name %>
+    </div>
   <% end %>
+  <br>
+  <a href='/posts/category'>カテゴリーを追加</a>
+  <br>
   <br>
   <%= f.submit "入力" %>
 <% end %>

@@ -1,13 +1,15 @@
-<button id="prev" type="button">前の月</button>
-<button id="next" type="button">次の月</button>
 <div id="calendar"></div>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<%= javascript_include_tag "calendar.js" %>
-
-<% @dates.each do |date| %>
-  <% if date[0][0]==0 %>
-    <p>日にち:<%= date[0][1] %> カテゴリー:<%= date[0][2] %> <%=date[1]%>円</p>
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <br>
+  <% unless @outgos[date].nil? && @incomes[date].nil? %>
+    <%= link_to("[内訳]", "/posts/calendar/#{date}") %>
+  <%end%>
+  <% unless @outgos[date].nil? %>
+  <p>支出:<%= @outgos[date]%></p>
+  <% end %>
+  <% unless @incomes[date].nil? %>
+  <p>収入:<%= @incomes[date]%></p>
   <% end %>
 <% end %>

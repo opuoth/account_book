@@ -7,7 +7,7 @@
     labels: gon.label_in,
     datasets: [{
       data: gon.data_in,
-      backgroundColor: ['orange','skyblue','pink','palegreen','mediumorchid']
+      backgroundColor: ['orange','skyblue','pink','palegreen','mediumorchid','mediumseagreen','lightcoral','sandybrown','turquoise','plum','wheat','lightgray','palegoldenrod','tomato','greenyellow']
     }]
   };
 
@@ -15,7 +15,7 @@
     cutoutPercentage: 40,
     title: {
       display: true,
-      text: gon.month+'月の収入',
+      text: gon.year+'年'+gon.month+'月(今日まで)の収入',
       fontSize: 20
     }
   };

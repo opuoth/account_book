@@ -1,0 +1,12 @@
+<%= form_with url:posts_add_url do |f| %>
+  <%= f.label "タイプ" %>
+  <%= f.radio_button :type, 0 %>
+  <%= f.label :type, "支出"%>
+  <%= f.radio_button :type, 1 %>
+  <%= f.label :type, "収入" %>
+  <br>
+  <%= f.label "追加カテゴリー" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit "追加" %>
+<% end %>

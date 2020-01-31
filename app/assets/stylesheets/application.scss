@@ -12,7 +12,16 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+.calendar-title {
+  font-size: 35px;
+}
+
 .chart {
   display: inline-block;
   width: 500px;
@@ -21,4 +30,9 @@
 .gragh {
   width: 1000px;
   margin: 20px;
+}
+
+.form-check-inline label{
+  margin-bottom: 0;
+  padding-left: 5px;
 }

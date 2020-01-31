@@ -62,7 +62,15 @@ class PostsController < ApplicationController
   end
 
   def calendar
+    @outgos = Budget.where(budget_type:0).select("date").group("date").sum(:price)
+    @incomes = Budget.where(budget_type:1).select("date").group("date").sum(:price)
     @dates = Budget.joins(:category).select("categories.*").group("budgets.budget_type","budgets.date","categories.name").order(date: "ASC").sum(:price)
+  end
+
+  def date
+    @date = params[:date]
+    @outgos = Budget.where(date: params[:date]).where(budget_type:0).joins(:category).select("categories.*").group("categories.name").order(date: "ASC").sum(:price)
+    @incomes = Budget.where(date: params[:date]).where(budget_type:1).joins(:category).select("categories.*").group("categories.name").order(date: "ASC").sum(:price)
   end
 
   def report
@@ -106,6 +114,7 @@ class PostsController < ApplicationController
       gon.label_in << key
       gon.data_in << value
     end
+    gon.year = d.year
     gon.month = d.month
   end
 
@@ -155,4 +164,21 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
+
+  def category
+  end
+
+  def add
+    @category = Category.new(
+      name: params[:name],
+      budget_type: params[:type]
+    )
+    if @category.save
+      redirect_to("/outgoing") if params[:type] == '0'
+      redirect_to("/incoming") if params[:type] == '1'
+    else
+      render("posts/calender")
+    end
+  end
+
 end

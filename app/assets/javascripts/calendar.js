@@ -54,41 +54,43 @@ function createCalendar(year, month){
 }
 
 function moveCalendar(e) {
-    document.querySelector('#calendar').innerHTML = ''
+    document.querySelector('#calendar').innerHTML = '';
 
     if (e.target.id === 'prev') {
-        month--
+        month--;
 
         if (month < 1) {
-            year--
-            month = 12
+            year--;
+            month = 12;
         }
     }
 
     if (e.target.id === 'next') {
-        month++
+        month++;
 
         if (month > 12) {
-            year++
-            month = 1
+            year++;
+            month = 1;
         }
     }
 
-    showCalendar(year, month)
+    showCalendar(year, month);
 }
 
 if (document.getElementById('prev') != null) {
-  document.getElementById('prev').addEventListener('click', moveCalendar)
+  document.getElementById('prev').addEventListener('click', moveCalendar);
 }
 if (document.getElementById('next') != null) {
-  document.getElementById('next').addEventListener('click', moveCalendar)
+  document.getElementById('next').addEventListener('click', moveCalendar);
 }
 
+// $(document).off("click");
 $(document).on("click", function(e) {
   if(e.target.classList.contains("calendar_td")) {
     console.log(e.target.dataset.date);
     // alert('クリックした日付は' + e.target.dataset.date + 'です');
     $('.select').removeClass('select');
+    // console.log("removed");
     e.target.classList.add("select");
   }
 });

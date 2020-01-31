@@ -4,14 +4,19 @@
 <%= form_with(url: "/posts/#{@post.id}/update") do |f|%>
   <%= f.label "日付" %>
   <%= f.date_field :date, value: @post.date %>
+  <br>
+  <br>
   <% if @post.budget_type == 0 %>
     <div>支出:<input name="outgo" value="<%=@post.price%>">円</div>
   <% else %>
     <div>収入:<input name="income" value="<%=@post.price%>">円</div>
   <% end %>
+  <br>
   <div>メモ:<input name="memo" value="<%=@post.memo%>"></div>
+  <br>
   <%= f.label "カテゴリー" %>
   <%= f.select :category_name, options_for_select(@categories, @category.name) %>
+  <br>
   <br>
   <input type="submit" value="保存">
 <% end %>
