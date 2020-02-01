@@ -4,7 +4,7 @@
   <%= date.day %>
   <br>
   <% unless @outgos[date].nil? && @incomes[date].nil? %>
-    <%= link_to("[内訳]", "/posts/calendar/#{date}") %>
+    <%= link_to("[内訳]", "/posts/calendar/#{date.year*10000+date.month*100+date.day}") %>
   <%end%>
   <% unless @outgos[date].nil? %>
   <p>支出:<%= @outgos[date]%></p>
