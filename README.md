@@ -1,24 +1,38 @@
-# README
+**Name**
+家計簿App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**動作環境**
+-Rails: 5.1.7
+-Ruby: 2.6.3
+-Chart.js
 
-Things you may want to cover:
+**URL**
+https://kakeibo-apply.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
+**Overview**
+主な機能:
+-費目の入力・更新・削除・閲覧機能
+-カテゴリー・メモの記入機能
+-カレンダー機能
+-月時集計機能
 
-* Configuration
+**Install**
+```
+git clone https://github.com/opuoth/account_book
+cd account_book
+bundle install
+```
 
-* Database creation
+データベースを設定します
+```
+rails db:migrate
+rails db:seed
+```
 
-* Database initialization
+サーバーを下記コマンドで立てます
+```
+rails s
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+http://localhost:3000/に接続するとアプリが起動します
