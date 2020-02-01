@@ -17,7 +17,7 @@ https://kakeibo-apply.herokuapp.com/
 -カレンダー機能  
 -月時集計機能  
 
-**Install**  
+**動作方法**  
 ```
 git clone https://github.com/opuoth/account_book
 cd account_book
