@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'posts#outgoing'
 
   get '/outgoing'=>'posts#outgoing'
@@ -14,17 +14,17 @@ Rails.application.routes.draw do
 
   get 'posts/calendar'
 
-  get 'posts/calendar/:date'=>'posts#date'
-
   get 'posts/report'
-
+  
   post 'posts/out'
-
+  
   post 'posts/in'
-
+  
   get 'posts/category'
-
+  
   post 'posts/add'
+  
+  get 'posts/calendar/:date'=>'posts#date'
   
   get 'posts/:id'=>'posts#show'
 

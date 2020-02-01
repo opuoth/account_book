@@ -1,1 +1,17 @@
 <h2>内訳</h2>
+<h4>日付: <%= @date[0...10]%> </h4>
+<div> 支出: </div>
+<% if @outgos.empty? %>
+  <p>なし</p>
+<% end %>
+<% @outgos.each do |outgo| %>
+  <p><%= outgo[0] %>:<%= outgo[1] %>円</p>
+<% end %>
+
+<div> 出費: </div>
+<% if @incomes.empty? %>
+  <p>なし</p>
+<% end %>
+<% @incomes.each do |income| %>
+  <p><%= income[0] %>:<%= income[1] %>円</p>
+<% end %>
