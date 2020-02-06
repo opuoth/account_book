@@ -100,10 +100,10 @@ class PostsController < ApplicationController
       data_hash_in = Budget.where(date:str+(date+1).to_s,budget_type: 1).joins(:category).select("categories.*").group("categories.name").sum(:price)
 
       data_hash_out.each do |key,value|
-        label_out[key]+=value
+        label_out[key]+=value unless label_out[key].nil?||value.nil?
       end
       data_hash_in.each do |key,value|
-        label_in[key]+=value
+        label_in[key]+=value unless label_in[key].nil?||value.nil?
       end
     end
     label_out.each do |key,value|

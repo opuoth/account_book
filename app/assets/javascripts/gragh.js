@@ -10,13 +10,13 @@
   var data = {
     labels: date_set,
     datasets: [{
-      label: '収入',
+      label: '支出',
       data: gon.data1,
       borderColor: 'rgba(255,0,0,0.5)',
       borderWidth: 5,
       backgroundColor: 'rgba(255,0,0,0.1)'
     },{
-      label: '支出',
+      label: '収入',
       data: gon.data2,
       borderColor: 'skyblue',
       borderWidth: 5,
