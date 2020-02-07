@@ -69,8 +69,8 @@ class PostsController < ApplicationController
 
   def date
     @date = DateTime.parse(params[:date]).to_s
-    @outgos = Budget.where(date: @date).where(budget_type:0).joins(:category).select("categories.*").group("categories.name").order(date: "ASC").sum(:price)
-    @incomes = Budget.where(date: @date).where(budget_type:1).joins(:category).select("categories.*").group("categories.name").order(date: "ASC").sum(:price)
+    @outgos = Budget.where(date: @date,budget_type:0).joins(:category).select("categories.*").group("categories.name").sum(:price)
+    @incomes = Budget.where(date: @date,budget_type:1).joins(:category).select("categories.*").group("categories.name").sum(:price)
   end
 
   def report
