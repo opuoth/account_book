@@ -1,15 +1,28 @@
-<div id="calendar"></div>
+<% outgoSum=0 %> 
+<% incomeSum=0 %>
+<% isMonth = false %>
 
 <%= month_calendar do |date| %>
+  <% if date.day == 1 %>
+    <% isMonth = !isMonth %>
+  <% end %>
   <%= date.day %>
   <br>
   <% unless @outgos[date].nil? && @incomes[date].nil? %>
     <%= link_to("[内訳]", "/posts/calendar/#{date.year*10000+date.month*100+date.day}") %>
   <%end%>
   <% unless @outgos[date].nil? %>
-  <p>支出:<%= @outgos[date]%></p>
+    <p>支出:<%= @outgos[date]%></p>
+    <% if isMonth %>
+      <% outgoSum += @outgos[date] %>
+    <% end %>
   <% end %>
   <% unless @incomes[date].nil? %>
-  <p>収入:<%= @incomes[date]%></p>
+    <p>収入:<%= @incomes[date]%></p>
+    <% if isMonth %>
+      <% incomeSum += @incomes[date] %>
+    <% end %>
   <% end %>
 <% end %>
+
+<h3>月総支出:<%= outgoSum%>円　　月総収入:<%= incomeSum%>円　　合計:<%= incomeSum-outgoSum%>円</h3>
