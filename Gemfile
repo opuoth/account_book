@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'chart-js-rails', '~> 0.1.4'
-gem 'gon', '~> 6.2.0'
+gem 'gon', '~> 6.4.0'
 gem 'simple_calendar', '~> 2.0'
 gem "bootstrap", ">= 4.3.1"
 
